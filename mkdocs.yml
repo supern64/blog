@@ -25,12 +25,15 @@ theme:
 
 # Extensions
 markdown_extensions:
+  - attr_list
+  - md_in_html
   - footnotes
   # - attr_list
   - pymdownx.arithmatex:
       generic: true
-  # - pymdownx.superfences
-  # - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.details
+  - admonition
   # - pymdownx.magiclink
   - pymdownx.tasklist:
       custom_checkbox: true
