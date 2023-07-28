@@ -1,6 +1,7 @@
 ---
 draft: false
 date: 2023-07-28
+description: getting some video on some LED lights
 categories:
   - tech
   - silly
