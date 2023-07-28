@@ -1,4 +1,5 @@
 site_name: Cirno's Lab
+site_description: a place where i ramble on and on about pointless things
 
 theme:
     name: 'material'
@@ -51,6 +52,13 @@ markdown_extensions:
 plugins:
   - search
   - roamlinks 
+  - blog:
+      blog_dir: .
+      blog_toc: true
+
+nav:
+  - Blog:
+    - index.md
 
 
 extra_javascript:
