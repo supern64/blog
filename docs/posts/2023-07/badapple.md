@@ -126,7 +126,7 @@ for (let char = 0; char < vs.length; char++) {
 This is what it looks like on the simulator... (framerate edited to match)
 <video src="https://cdn.discordapp.com/attachments/801725832581087263/1130117678082830426/720pbadapple.mp4" controls></video>
 And this is what it looks like on the real thing! (contrast increased, out of sync because framerate matching is hard)
-<video src="https://files.catbox.moe/wondl4.mp4" controls></video>
+<video src="https://cdn.discordapp.com/attachments/473401307701706753/1150450812485640313/8mb.video-PWO-kpmOflOc.mp4" controls></video>
 So, all in all, this was a nice way to get to mess around with encoding video. I'll probably have more stupid ideas I could experiment with in the future... but wait. Aren't we missing something?
 
 ## Where's my audio?
