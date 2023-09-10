@@ -243,8 +243,10 @@ for (let char = 0; char < vs.length; char++) {
 }
 ```
 
-And now, the Bad Apple on micro:bit saga shall end...
-<video src="https://cdn.discordapp.com/attachments/473401307701706753/1150446233563963402/firefox_lzrY1DSzux.mp4" controls></video>
+And now, the Bad Apple on micro:bit saga shall end... (that crackling at the end is from the emulator, I promise!)
+<video src="https://cdn.discordapp.com/attachments/473401307701706753/1150450122820436059/PTiTgggwpI.mp4" controls></video>
 
 ## Conclusion
 Honestly? I didn't even expect myself to take it this far. I mean, I start a billion projects and this is one of maybe three that I'll finish. It was a fun experience looking for ways to encode video in text, after all. I'm sure I'll find more dumb ways to reinvent the wheel after this...
+
+I might publish the source code to the script that generated all of this, but it's not certain. Oh well.
