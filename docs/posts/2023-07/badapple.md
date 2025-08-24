@@ -12,9 +12,9 @@ If you're in the Touhou community, or really anything with a demoscene community
 
 <!-- more -->
 
-But when people have gotten around to making Bad Apple run on so many devices, what's there left to run it on? A calculator? [Done.](https://www.youtube.com/watch?v=6pAeWf3NPNU) A fucking pregnancy test? [Done.](https://twitter.com/Foone/status/1302277329972948993)
+But when people have gotten around to making Bad Apple run on so many devices, what's there left to run it on? A calculator? [Done.](https://www.youtube.com/watch?v=6pAeWf3NPNU) A pregnancy test? [Done.](https://twitter.com/Foone/status/1302277329972948993)
 
-After much thinking however, I thought about a slightly niche microcontroller device, called the micro:bit. I wouldn't have expected BBC to be the one who made this damn thing, but I guess it makes sense considering they also made the BBC Micro back in the 80s. 
+After much thinking however, I thought about a slightly niche microcontroller device, called the micro:bit. I wouldn't have expected BBC to be the one who made this, but I guess it makes sense considering they also made the BBC Micro back in the 80s. 
 
 
 <figure markdown>
@@ -27,7 +27,7 @@ I mean, it's got a 5x5 screen. That could certainly display Bad Apple...
 Now you might be asking "Wait. Hasn't someone done this?", and you'd be right, but the implementations I saw (two of them) were janky, one of them required 37 scripts to be spliced together, and the other didn't really run on real hardware. Also, at this point, I kind of gave up trying to make something unique. Oh well.
 
 ## Reinventing the Wheel
-First off, I had to figure out how the hell I was going to get full motion video on this. The micro:bit obviously wasn't going to play a 480p H.264 video in full resolution at 30fps, so first, I used my handy media knife (ffmpeg) to change the video to a "square" resolution of 360x360. Then I wrote some OpenCV code to finally resize the video down to the desired 5x5 resolution, converting it to black-and-white in the process to save data...
+First off, I had to figure out how I was going to get full motion video on this. The micro:bit obviously wasn't going to play a 480p H.264 video in full resolution at 30fps, so first, I used my handy media knife (ffmpeg) to change the video to a "square" resolution of 360x360. Then I wrote some OpenCV code to finally resize the video down to the desired 5x5 resolution, converting it to black-and-white in the process to save data...
 !!! note
 	While the micro:bit could control the LEDs in grayscale, I decided not to due to the amount of data that would be required. I would like this thing to fit in one script, after all!
 Then, in that same script, I encode the video in a series of 25-bit numbers (5x5 screens ARE tiny!), where 1 number represents one bit, like this:
@@ -123,14 +123,10 @@ for (let char = 0; char < vs.length; char++) {
     basic.pause(((1000 / 16) * count) - (input.runningTime() - now));
 }
 ```
-This is what it looks like on the simulator... (framerate edited to match)
-<video src="https://cdn.discordapp.com/attachments/801725832581087263/1130117678082830426/720pbadapple.mp4" controls></video>
-And this is what it looks like on the real thing! (contrast increased, out of sync because framerate matching is hard)
-<video src="https://cdn.discordapp.com/attachments/473401307701706753/1150450812485640313/8mb.video-PWO-kpmOflOc.mp4" controls></video>
-So, all in all, this was a nice way to get to mess around with encoding video. I'll probably have more stupid ideas I could experiment with in the future... but wait. Aren't we missing something?
 
+This was a nice way to get to mess around with encoding video. I'll probably have more stupid ideas I could experiment with in the future... but wait. Aren't we missing something?
 ## Where's my audio?
-If I had muted the audio for one of our earlier samples, you would've heard no sound. Well, because there was no sound. It doesn't come neatly prepackaged like the video, you see. So where do we go from here? I'm thinking some *MIDI files...*
+You may have noticed there is nothing in the code relating to sound. That's because there is no sound. So where do we go from here? I'm thinking some *MIDI files...*
 ### MIDI, the ultimate audio format
 If you've read the article this far, you probably know what a MIDI file is. But if you don't, MIDI is the standard way for keyboards, synthesizers (and the like) to communicate with each other with "messages". With this comes MIDI files, which are files that contain messages to be played. Note how they're just data, and they don't contain any actual audio. They're just... instructions for musical instruments, like sheet music. This is very useful for us, since we need none of the actual audio samples that are there, we just need to know what the notes are so we can synthesize them on the micro:bit.
 
@@ -249,10 +245,8 @@ for (let char = 0; char < vs.length; char++) {
 }
 ```
 
-And now, the Bad Apple on micro:bit saga shall end... (real device footage soon:tm:)
-<video src="https://cdn.discordapp.com/attachments/1022470172495323226/1150780800690815017/firefox_dN5b3n244A.mp4" controls></video>
+And now, Bad Apple on micro:bit...
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4FTExhRxtiI?si=GVrv1BST9RmsKpQ-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Conclusion
-Honestly? I didn't even expect myself to take it this far. I mean, I start a billion projects and this is one of maybe three that I'll finish. It was a fun experience looking for ways to encode video in text, after all. I'm sure I'll find more dumb ways to reinvent the wheel after this...
-
-I might publish the source code to the script that generated all of this, but it's not certain. Oh well.
+Honestly? I didn't even expect myself to take it this far. I mean, I start a billion projects and this is one of maybe three that I'll finish. It was a fun experience looking for ways to encode video in text, after all. I'm sure I'll find more ways to reinvent the wheel after this...
